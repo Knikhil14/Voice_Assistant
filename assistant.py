@@ -14,7 +14,7 @@ voices = engine.getProperty('voices')
 engine.setProperty('voice', voices[1].id)  # Use female voice
 
 def talk(text):
-    print("🎙️ GIRI:", text)
+    print("🎙️ Cyrus:", text)
     engine.say(text)
     engine.runAndWait() 
 
@@ -29,14 +29,14 @@ def take_command():
         command = command.lower()
         print("🗣️ You said:", command)
     except sr.UnknownValueError:
-        talk("Sorry bro, I didn’t catch that.")
+        talk("Sorry Nick, I didn’t catch that.")
         return ""
     except sr.RequestError:
         talk("Network issue with Google service.")
         return ""
     return command
 
-def run_giri():
+def run_cyrus():
     command = take_command()
 
     if "play" in command:
@@ -48,10 +48,9 @@ def run_giri():
         time = datetime.datetime.now().strftime('%I:%M %p')
         talk(f"It’s {time} ⏰")
 
-    elif "who is uday codes" in command or "who is uday_codes" in command:
+    elif "who  is Kolluri Nikhil" in command or "who is Nick" in command:
         info = (
-            "Uday, known as uday_codes on Instagram, is a coding content creator. "
-            "He teaches Python projects in Telugu and runs udaycodes.in 💻"
+            "Nick, known as Kolluri Nikhil as Devops Engineer 💻."
         )
         talk(info)
 
@@ -79,12 +78,12 @@ def run_giri():
         os.system("code")
 
     elif "exit" in command or "stop" in command:
-        talk("Okay bro, see you later 👋")
+        talk("Okay Nick, see you later 👋")
         sys.exit()
 
     elif command != "":
         talk("I heard you, but I don’t understand that yet 😅")
 
-talk("Yo! I'm GIRI – your personal voice assistant 💡")
+talk("Yo! I'm Cyrus – your personal voice assistant 💡")
 while True:
-    run_giri()
+    run_cyrus()
